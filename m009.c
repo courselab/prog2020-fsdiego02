@@ -16,66 +16,26 @@
 
 */
 
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #define MAX 100
 
-int vec_len (int *vec)
-{
-  int k = -1;
-  while (*(vec++))
-    k++;
-  return k;
-}
-
 /* Sort the first 'n' integers values in 'vector'. */
 
-void sort (int* vector, int s)
+void sort (int* vector, int n)
 {
-  if (s < 1)
+  int a, v, x;                              
+  for (a = 0; a < n; a++)                     
   {
-    return;
-  }
-  int counter = 0;
-  int r = 0; 
-  int rr = 0;
-  int value = MAX;
-  int siz = vec_len (vector); 
-  int newvec [siz + 1];
-
-  if (siz != 1)
-  {
-    while(r != siz - 2)
+    for (v = 0; v < n - a - 1; v++)           
     {
-      if (value != MAX)
+      if (vector[v] > vector[v + 1])            
       {
-        value = MAX;
+        x = vector[v];
+        vector [v] = vector [v + 1];
+        vector [v + 1] = x;                   
       }
-      for(rr = 0; rr <siz - 1; rr++)
-      {
-        if(value >= vector [rr])
-        {
-          value = vector [rr]; 
-        }
-      }
-      for(rr = 0; rr < siz - 1; rr++)
-      { 
-        if(value == vector [rr] && counter !=1)
-        {
-          vector[rr] = 101;
-          counter = 1;
-        }
-      } 
-      counter = 0; 
-      newvec [r] = value; 
-      r++;
-    }
-    for (r = 0; r <siz - 1; r++)
-    {
-      vector [r] = 0;
-      vector [r] = newvec [r];
     }
   }
 }
