@@ -24,11 +24,30 @@
 
 #define MAX 256
 
+int nl (char c)
+{
+  int k = 0;
+  if (c >= 'a' && c <= 'z')
+  {
+    k += 1;
+  }
+  if (c >= 'A' && c <= 'Z')
+  {
+    k += 1;
+  } 
+  return k;
+}
 /* Count the number of letters in string s.*/
 
 int lettercount (char *s)
 {
-  return 0;
+  int counting = 0, i = 0;
+  while (s[i] != 0)
+  {
+    counting += nl (s[i]);
+    i++;
+  }
+  return counting;
 }
 
 
