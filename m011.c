@@ -28,7 +28,29 @@
 
 int wordcount (char *filename)
 {
-  return 0;
+  FILE *fn;
+  int a;
+  int amount = 0;
+  int status = 0;
+
+  fn = fopen (filename,"r");
+
+  while ((a = fgetc (fn))!= EOF)
+  {
+    if((status == 0 && a == 32)||(status == 0 && a =='\n'))
+    {
+      status = 1;
+      amount ++;
+    }
+    else
+    {
+      if (status == 1 && a!= 32)
+      {
+        status = 0;
+      }
+    } 
+  } 
+  return amount;
 }
 
 /* Do not edit function main. */
