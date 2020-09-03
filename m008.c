@@ -15,11 +15,12 @@
 
    Directions:
 
-      Please, edit function lasname();
+      Please, edit function lastname();
       do no not change function main().
 
 */
 
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -29,7 +30,42 @@
    form into LAST-first-middle form. */
 
 void lastname (char *s)
+
 {
+  int j, pos_ult_esp, tam_vec, aux1 = 0, aux2 = 0;
+  char vec_aux [256];
+  strcpy (vec_aux, s);
+  tam_vec = strlen (vec_aux) - 1;
+  
+  for(j = tam_vec; vec_aux [j]!=32; j--)
+  {
+  } 
+  pos_ult_esp = j + 1;
+  j = 0;
+ 
+  for(j = pos_ult_esp; j!= tam_vec; j++)
+  {
+    s[aux1] = vec_aux[j];
+    aux1++;
+  } 
+  for (j = 0; j <= aux1 - 1; j++)
+  {
+  	if(s[j] >= 'a' && s[j] <= 'z')
+  	{
+  		s[j] = s[j] - 32;
+	}
+  }
+  s[aux1] = ',';
+  aux1++;
+  s[aux1] = 32;
+  aux1++;
+  j = 0;
+  for (j = aux1; j!= tam_vec + 1; j++)
+  {
+  	s[j] = vec_aux[aux2];
+  	aux2++;
+  }
+  j = 0;
 }
 
 
